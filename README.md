@@ -66,7 +66,7 @@ To create NFTs that function as wallets:
 
 ## Disclaimer
 
-The Solana wallet used to operate the NFT wallet must hold sufficient SOL to cover rent exemptions and transaction fees for operations like airdrops, transfers, and ownership changes on the devnet.
+The Solana wallet used to interact with this dApp must hold sufficient SOL to cover transaction fees for operations such as airdrops, transfers, and ownership changes on the Solana devnet. This is because the asset signer, implemented as a Program-Derived Address (PDA) via the Metaplex Umi SDK, cannot act as a fee payer. While the PDA enables the NFT to function as a wallet for managing SOL and SPL fungible tokens, the user's connected Solana wallet is responsible for paying the associated transaction fees and rent costs.
 
 ## License
 
