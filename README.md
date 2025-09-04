@@ -1,6 +1,6 @@
 # NFTs as Wallets
 
-This decentralized application (dApp) was built using the `create-solana-dapp` framework with the React, Vite, and TypeScript legacy template. This repository demonstrates how Metaplex Core NFTs can be transformed into fully functional wallets capable of receiving and sending SOL and SPL fungible tokens. By leveraging the asset signer and execute functions, each NFT becomes a wallet, allowing users to connect their Solana wallet, view their Core NFTs in a list, click to see detailed NFT information, and perform asset management operations directly through the NFT.
+This decentralized application (dApp) was built using the `create-solana-dapp` framework with the React, Vite, and TypeScript legacy template. This repository demonstrates how Metaplex Core NFTs can be transformed into fully functional wallets capable of receiving and sending SOL and SPL fungible tokens. By leveraging the asset signer and execute functions provided by the Metaplex Umi SDK, each NFT becomes a wallet, allowing users to connect their Solana wallet, view their Core NFTs in a list, click to see detailed NFT information, and perform asset management operations directly through the NFT.
 
 ## Features
 
@@ -11,6 +11,18 @@ This decentralized application (dApp) was built using the `create-solana-dapp` f
   - **Send SOL**: Transfer SOL from the NFT wallet to another address.
   - **Send SPL Tokens**: Move SPL fungible tokens from the NFT wallet to other accounts.
   - **Transfer NFT Ownership**: Change the ownership of the NFT wallet to another Solana address.
+
+## Metaplex Umi SDK
+
+This project heavily utilizes the **Metaplex Umi SDK**, a powerful and modular JavaScript/TypeScript library designed to simplify interactions with the Solana blockchain and Metaplex protocols. Umi provides a streamlined interface for managing Metaplex Core NFTs, handling tasks such as minting, fetching metadata, and executing transactions. Its modular design allows us to integrate specific plugins for tasks like asset signing and transaction execution, making it ideal for transforming NFTs into functional wallets. The SDK's flexibility and robust tooling enable seamless integration with the Solana ecosystem, ensuring efficient and secure operations for NFT wallet functionalities.
+
+## Metaplex Core NFTs
+
+**Metaplex Core NFTs** are a new standard introduced by Metaplex for creating and managing non-fungible tokens on the Solana blockchain. Unlike traditional NFTs, Core NFTs are designed to be lightweight, flexible, and highly programmable, making them ideal for advanced use cases like acting as wallets. They leverage Solana's high-performance blockchain to enable fast and cost-efficient minting, storage, and transaction execution. Core NFTs store metadata on-chain or via external URIs (e.g., `sample_metadata.json`), allowing for rich customization, such as embedding attributes, images, or programmable behaviors. In this dApp, Core NFTs are used not only as unique digital assets but also as fully functional wallets, capable of holding and managing SOL and SPL tokens through their integrated asset signer and execute capabilities.
+
+## Execute Function in Core NFTs
+
+The **execute function** in Metaplex Core NFTs is a key feature that enables NFTs to act as programmable wallets. This function allows the NFT to sign and execute transactions on the Solana blockchain, effectively turning it into a wallet-like entity capable of holding and transferring assets such as SOL and SPL tokens. The execute function leverages the NFT's asset signer, which is a derived program-derived address (PDA) that grants the NFT the authority to sign transactions. By invoking the execute function, users can perform operations like transferring SOL, moving SPL tokens, or updating ownership directly through the NFT, all while maintaining the security and immutability of the Solana blockchain.
 
 ## Getting Started
 
