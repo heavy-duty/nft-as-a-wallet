@@ -1,0 +1,7 @@
+{
+  "name": "My NFT Wallet",
+  "symbol": "WALL",
+  "description": "This NFT has the capabilities of a wallet.",
+  "sellerFeeBasisPoints": 0,
+  "image": "https://github.com/danmt/nft-wallet/blob/7ffeb830aefbbe106160e5d0671b9d7b1a99e4fc/sample_nft_image.png?raw=true"
+}
