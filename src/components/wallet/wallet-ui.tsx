@@ -353,14 +353,14 @@ export function WalletList({ assetOwner }: { assetOwner: PublicKey }) {
             <div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {items?.map((nft) => (
-                  <Link to={`/wallet/${nft.publicKey}`} aria-label={nft.metadata.name} key={nft.publicKey}>
+                  <Link to={`/wallet/${nft.publicKey}`} aria-label={nft.name} key={nft.publicKey}>
                     <div className="border rounded-lg p-4 bg-card hover:shadow-lg transition-shadow">
                       <img
                         src={nft.metadata.image}
-                        alt={nft.metadata.name}
+                        alt={nft.name}
                         className="w-full h-48 object-cover rounded-md mb-3"
                       />
-                      <h3 className="text-lg font-semibold">{nft.metadata.name}</h3>
+                      <h3 className="text-lg font-semibold">{nft.name}</h3>
                       <p className="text-sm text-muted-foreground line-clamp-2">{nft.metadata.description}</p>
                       <div className="mt-2">
                         <span className="text-xs font-medium text-muted-foreground">Symbol: {nft.metadata.symbol}</span>
