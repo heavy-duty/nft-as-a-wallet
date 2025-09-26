@@ -1,4 +1,11 @@
-import { AssetV1, execute, fetchAsset, fetchAssetsByOwner, transfer } from '@metaplex-foundation/mpl-core'
+import {
+  AssetV1,
+  execute,
+  fetchAsset,
+  fetchAssetsByOwner,
+  fetchCollection,
+  transfer,
+} from '@metaplex-foundation/mpl-core'
 import {
   createTokenIfMissing,
   fetchAllTokenByOwner,
@@ -195,8 +202,11 @@ export function useExecuteTransferSol({ assetId, assetSigner }: { assetId: Publi
     mutationFn: async (input: { destination: PublicKey; amount: SolAmount }) => {
       const asset = await fetchAsset(umi, assetId)
 
+      const collectionAddress = asset.updateAuthority.type === 'Collection' ? asset.updateAuthority.address : undefined
+      const collection = collectionAddress ? await fetchCollection(umi, collectionAddress) : undefined
       const res = await execute(umi, {
         asset,
+        collection,
         instructions: transferSol(umi, {
           source: createNoopSigner(assetSigner),
           destination: input.destination,
@@ -281,9 +291,12 @@ export function useExecuteTransferSpl({
           }),
         )
         .append(noOpInstruction)
+      const collectionAddress = asset.updateAuthority.type === 'Collection' ? asset.updateAuthority.address : undefined
+      const collection = collectionAddress ? await fetchCollection(umi, collectionAddress) : undefined
 
       const res = await execute(umi, {
         asset,
+        collection,
         instructions: transferSpl,
       }).sendAndConfirm(umi)
 
